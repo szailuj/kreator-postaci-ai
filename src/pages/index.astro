@@ -294,7 +294,6 @@
 <div id="ekran-hasla">
   <div class="karta-hasla">
     <h1>Kreator Postaci AI</h1>
-    <p class="podpis">Julka Szargiej</p>
     <div class="pole-hasla-wrapper">
       <input type="text" id="pole-hasla" placeholder="hasło" class="ukryte" />
       <button class="btn-oko" id="btn-oko" type="button">
@@ -712,13 +711,13 @@
   </div>
 
   <footer>
-    Julka Szargiej &nbsp;·&nbsp; Kreator Postaci AI
+    Kreator Postaci AI
   </footer>
 
 </div>
 
 <script is:inline>
-  var HASLO = "wdupietrzaslo";
+  var HASLO = "1234";
   var poleHasla = document.getElementById('pole-hasla');
   var btnOko = document.getElementById('btn-oko');
   var svgOko = document.getElementById('svg-oko');
@@ -756,10 +755,10 @@
     var btn = document.getElementById('btn-podglad-toggle');
     if (panel.style.display === 'block') {
       panel.style.display = 'none';
-      btn.textContent = 'Karta postaci \u2193';
+      btn.textContent = 'Karta postaci ↓';
     } else {
       panel.style.display = 'block';
-      btn.textContent = 'Karta postaci \u2191';
+      btn.textContent = 'Karta postaci ↑';
       aktualizujPodglad();
     }
   });
@@ -780,11 +779,11 @@
       if (tresc.classList.contains('widoczny')) {
         tresc.classList.remove('widoczny');
         strzalka.classList.remove('otwarty');
-        strzalka.textContent = '\u2193';
+        strzalka.textContent = '↓';
       } else {
         tresc.classList.add('widoczny');
         strzalka.classList.add('otwarty');
-        strzalka.textContent = '\u2191';
+        strzalka.textContent = '↑';
       }
     });
   });
@@ -904,7 +903,7 @@
       input.style.cssText = 'flex:1;padding:8px 12px;border:1px solid #e0e0e0;font-size:0.85rem;font-family:inherit;outline:none';
       input.addEventListener('input', function() { lista[i] = input.value; aktualizujPodglad(); });
       var btnX = document.createElement('button');
-      btnX.textContent = '\u00d7';
+      btnX.textContent = '×';
       btnX.style.cssText = 'background:none;border:none;cursor:pointer;color:#aaa;font-size:1.2rem;padding:0';
       btnX.addEventListener('click', function() { lista.splice(i, 1); renderZasady(typ); });
       div.appendChild(input);
@@ -1017,8 +1016,8 @@
 
     var zawsze = zasadyZawsze.filter(function(z){return z;});
     var nigdy = zasadyNigdy.filter(function(z){return z;});
-    if (zawsze.length) { t += '\n--- Always ---\n'; zawsze.forEach(function(z){ t += '\u2022 ' + z + '\n'; }); }
-    if (nigdy.length) { t += '\n--- Never ---\n'; nigdy.forEach(function(z){ t += '\u2022 ' + z + '\n'; }); }
+    if (zawsze.length) { t += '\n--- Always ---\n'; zawsze.forEach(function(z){ t += '• ' + z + '\n'; }); }
+    if (nigdy.length) { t += '\n--- Never ---\n'; nigdy.forEach(function(z){ t += '• ' + z + '\n'; }); }
 
     var otwarta = document.getElementById('otwarta').value;
     if (otwarta) t += '\n--- Additional ---\n' + otwarta + '\n';
